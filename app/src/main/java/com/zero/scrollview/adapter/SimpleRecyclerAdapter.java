@@ -76,7 +76,7 @@ public class SimpleRecyclerAdapter<T> extends RecyclerView.Adapter<SimpleRecycle
     }
 
     @Override
-    public BaseRecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public SimpleRecyclerAdapter.BaseRecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == HEAD_ITEM) {
             return new HeadFootViewHolder(getHeadView());
         } else if (viewType == FOOT_ITEM) {
@@ -88,6 +88,11 @@ public class SimpleRecyclerAdapter<T> extends RecyclerView.Adapter<SimpleRecycle
     }
 
     @Override
+    public void onBindViewHolder(SimpleRecyclerAdapter.BaseRecyclerViewHolder holder, int position) {
+        holder.showItem();
+    }
+
+    @Override
     public int getItemViewType(int position) {
         if (position == 0) {
             return HEAD_ITEM;
@@ -96,11 +101,6 @@ public class SimpleRecyclerAdapter<T> extends RecyclerView.Adapter<SimpleRecycle
         } else {
             return CONTENT_ITEM;
         }
-    }
-
-    @Override
-    public void onBindViewHolder(BaseRecyclerViewHolder holder, int position) {
-        holder.showItem();
     }
 
     @Override

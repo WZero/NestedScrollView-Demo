@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.zero.scrollview.adapter.SimpleRecyclerAdapter;
+import com.zero.scrollview.utils.KLog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements SimpleRecyclerAda
         adapter.setOnClickItemListener(new SimpleRecyclerAdapter.OnClickItemListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Log.i("----", position + "-----" + stringList.get(position));
+                KLog.i(position + "-----" + stringList.get(position));
             }
         });
         adapter.getHeadView().addView(LayoutInflater.from(getApplicationContext()).inflate(R.layout.main_head_item, adapter.getHeadView(), false));
